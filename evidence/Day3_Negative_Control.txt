@@ -1,0 +1,9 @@
+
+PS C:\RansomTrace> python detector.py
+scoring table: {'mass_change': 30, 'locked_extension': 20, 'ransom_note': 20, 'shadow_delete': 30}  alert at: 60
+RansomTrace detector running on WIN-PTVUHCNLAU6. Watching c:\data. Ctrl+C to stop.
+
+SESSION SUMMARY
+  powershell.exe (PID 1748) score=0/100 Low signals=[]
+stopped
+PS C:\RansomTrace>

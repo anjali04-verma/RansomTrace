@@ -1,0 +1,38 @@
+PS C:\Users\Administrator> cd C:\RansomTrace
+PS C:\RansomTrace> Remove-Item C:\Data\* -Force
+PS C:\RansomTrace> dir C:\Data
+PS C:\RansomTrace> python detector.py
+scoring table: {'mass_change': 30, 'locked_extension': 20, 'ransom_note': 20, 'shadow_delete': 30}  alert at: 60
+RansomTrace detector running on WIN-PTVUHCNLAU6. Watching c:\data. Ctrl+C to stop.
+
+============================================================
+ALERT  High  score 70/100
+  Process : python.exe (PID 2764)
+  User    : WIN-PTVUHCNLAU6\Administrator
+  Server  : WIN-PTVUHCNLAU6
+  Files   : 500
+  Reasons :
+    - 500 files changed within 30 seconds
+    - .locked extension on 500 files
+    - Ransom note file created
+  Response: taskkill /F /PID 2764
+============================================================
+
+============================================================
+ALERT  Critical  score 100/100
+  Process : python.exe (PID 2764)
+  User    : WIN-PTVUHCNLAU6\Administrator
+  Server  : WIN-PTVUHCNLAU6
+  Files   : 500
+  Reasons :
+    - 500 files changed within 30 seconds
+    - .locked extension on 500 files
+    - Ransom note file created
+    - Shadow-copy deletion (vssadmin delete shadows)
+  Response: taskkill /F /PID 2764
+============================================================
+
+SESSION SUMMARY
+  python.exe (PID 2764) score=100/100 Critical signals=['mass_change', 'locked_extension', 'ransom_note', 'shadow_delete']
+stopped
+PS C:\RansomTrace>
