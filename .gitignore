@@ -1,5 +1,7 @@
 *.pcap
+*.pcapng
 *.db
 *.log
+!evidence/*.log
 .env
 __pycache__/
